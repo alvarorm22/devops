@@ -4,6 +4,6 @@ python:
 services:
   - docker
 install:
-  - pip install nose pylint 
+  - pip install pytest-pylint==0.16.1 
 script:
-  - nosetests && pylint
+  - pytest --pylint
