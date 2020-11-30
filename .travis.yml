@@ -4,6 +4,6 @@ python:
 services:
   - docker
 install:
-  - pip install pylint 
+  - pip install nose pylint 
 script:
-  - pylint
+  - nosetests && pylint
