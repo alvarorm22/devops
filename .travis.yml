@@ -4,6 +4,6 @@ python:
 services:
   - docker
 install:
-  - pip install pytest
+  - pip install pylint 
 script:
-  - pytest --pylint
+  - pylint
