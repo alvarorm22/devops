@@ -6,4 +6,4 @@ services:
 install:
   - pip install pytest
 script:
-  - pytest
+  - pytest --pylint
