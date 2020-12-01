@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbmeasures
+  labels:
+    app: dbmeasures
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dbmeasures
+  template:
+    metadata:
+      labels:
+        app: dbmeasures
+    spec:
+      containers:
+      - name: dbmeasures
+        image: alvarorm/dbmeasures:latest
+        ports:
+        - containerPort: 5432 
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:            
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD 
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD          
+        - name: POSTGRES_PORT 
+          value: "5432"
+        - name: POSTGRES_DB 
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_DB
+

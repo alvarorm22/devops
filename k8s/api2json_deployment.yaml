@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api2json
+  labels:
+    app: api2json
+spec:
+  replicas: 5 
+  selector:
+    matchLabels:
+      app: api2json
+  template:
+    metadata:
+      labels:
+        app: api2json
+    spec:
+      containers:
+      - name: api2json
+        image: alvarorm/api2json:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_DB
+        - name: POSTGRES_HOST
+          value: "dbmeasures"
