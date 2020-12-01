@@ -12,7 +12,7 @@ before_install:
   - sudo apt-get -y install gcc
   - sudo apt-get -y install python3-dev
   - sudo apt-get -y install musl-dev
-  - 'sudo ./main.sh'
+  - './.travis/main.sh'
 install:
   - pip install pytest-pylint==0.16.1
   - pip3 install flask
