@@ -26,6 +26,31 @@ services:
       - POSTGRES_HOST=${POSTGRES_HOST}
       - POSTGRES_PORT=${POSTGRES_PORT}
       - POSTGRES_DB=${POSTGRES_DB}
-
-
-
+  redis:
+    image: redis:alpine
+    environment:
+      - REDIS_PASSWORD=${REDIS_HOST}
+      - REDIS_REPLICATION_MODE=master  
+    container_name: redis
+    volumes:
+      - $PWD/redis-data:/var/lib/redis
+      - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+    ports: 
+      - 6379:6379
+    command: 
+      - --save 900 1
+      - --requirepass ${REDIS_PASSWORD} 
+  rediscache:
+    image: rediscache
+    container_name: rediscache
+    build: cache/.
+    ports:
+      - 5005:5005
+    depends_on:
+    - redis 
+    links:
+     - redis
+     - api2json
+    environment:
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
