@@ -17,6 +17,9 @@ install:
   - pip install pytest-pylint==0.16.1
   - pip3 install flask
   - pip3 install psycopg2==2.7.6 
+  - pip3 install httpcore==0.12.0
+  - pip3 install httpx==0.16.1
+  - pip3 install redis==3.5.3
 
 script:
   - pytest --pylint --pylint-error-types=EF 
