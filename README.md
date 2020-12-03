@@ -72,3 +72,10 @@ For logs, an optimal solution could be sends it to a ELK platform, so developers
 There most important things to do a backup are the data volumes of Redis and Postgres datastores
 
 
+
+## IMAGES:
+
+- api2json: `alvarorm/api2json`
+- rediscache: `alvarorm/rediscache`
+- postgres: `alvarorm/dbmeasures`
+- redis: `redis/alpine`
