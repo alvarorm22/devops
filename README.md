@@ -2,7 +2,7 @@
 
 ## API
 
-This API has been implemented with Python, it has been used the Flask module to expose the API service for requests.
+This API has been implemented with Python, Flask module has been used to expose the API service for requests.
 The api2json works as follows: 
 
 - It receives a request to serve the air quality measurements of some cities
@@ -13,12 +13,12 @@ The api2json works as follows:
 
 Some scripts have been developed to build and deploy the images easier:
 
-- Makefile: It import deploy.env file and build | up | stop | start the containers. Also publish command is available to tag and upload the images to Docker Hub
+- Makefile: It import deploy.env file and `build | up | stop | start` the containers. Also `publish` command is available to tag and upload the images to Docker Hub
 - docker-compose: Make use this config file to deploy and build images. Dependencies between containers are indicated in this file too. Environment variables used by docker-compose must be indicated in an .env file
 
 ## POSTGRES
 
-This postgres image has been built to start and load the `environment_airq_measurand.csv`file in a table. It can be started with Makefile and docker-compose
+This postgres image has been built to start and load the `environment_airq_measurand.csv`file in a table itself. It can be started with Makefile and docker-compose
 
 ## CI 
 
@@ -42,7 +42,7 @@ All of these containers are been deployed in a kubernetes cluster. Yaml config f
 - 1 Service to expose the postgres deployment
 - 1 Secret for passwords and db
 
-Also, a solution cache has been implemented in this exercise. It has been use a Redis for the cache and a API-Cache implemented in Python. These config files are includes in k8s folder too, and they are the following:
+Also, a solution cache has been implemented in this exercise. It has been use a Redis for the cache and a API-Cache developed in Python. These config files are includes in k8s folder too, and they are the following:
 
 - 1 Deployment with 1 replicas for the rediscache image
 - 1 Deployment with 1 replicas for the redis instance
