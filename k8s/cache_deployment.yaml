@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rediscache 
+  labels:
+    app: rediscache
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: rediscache
+  template:
+    metadata:
+      labels:
+        app: rediscache
+    spec:
+      containers:
+      - name: rediscache
+        image: alvarorm/rediscache:latest
+        ports:
+        - containerPort: 5005
+        env:
+        - name: REDIS_HOST
+          value: "redis"
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis-secret
+              key: REDIS_PASSWORD
+        - name: POSTGRES_PORT
+          value: "6379"
