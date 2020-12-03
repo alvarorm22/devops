@@ -79,3 +79,9 @@ There most important things to do a backup are the data volumes of Redis and Pos
 - rediscache: `alvarorm/rediscache`
 - postgres: `alvarorm/dbmeasures`
 - redis: `redis/alpine`
+
+## TRAVIS:
+
+- https://travis-ci.com/github/alvarorm22/devops
+
+
