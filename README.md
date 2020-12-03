@@ -64,11 +64,11 @@ All of these deployments and services can be launched with command: `kubectl cre
 
 To ensure proper operation of this solution there are some points that can bee monitorized easily:
 
-- API Ports: They have to be allways open to reveives requests. It can bee monitorized for example whith some Ansible playbooks. Also Kubernetes offers the possibility of implementing liveness HTTP request for pods, the kubelet is checking the ports healtz and can restart de container when the port is no able to respond
+- API Ports: They have be allways open to reveives requests. It can bee monitorized for example whith some Ansible playbooks. Also Kubernetes offers the possibility of implementing liveness HTTP request for pods, the kubelet is checking the ports healtz and can restart de container when the port is no able to respond
 - Postgres and Redis: Load, CPU, memory and other graphics can be displayed in a Grafana Dashboard. Prometheus and InfluxDB can be used for storing metrics.
 
 For logs, an optimal solution could be sends it to a ELK platform, so developers and operators can review it easily from Kibana.
 
-There most important things to do a backup are the data volumes of datastores
+There most important things to do a backup are the data volumes of Redis and Postgres datastores
 
 
