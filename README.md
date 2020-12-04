@@ -34,7 +34,7 @@ The flow run as follows:
 
 ## DEPLOYMENT
 
-All of these containers are been deployed in a kubernetes cluster. Yaml config files are provided in k8s folder:
+All of these containers have been deployed in a kubernetes cluster. Yaml config files are provided in k8s folder:
 
 - 1 Deployment with 5 replicas for api2json image
 - 1 Deployment with 1 replicas for postgres image
