@@ -60,6 +60,35 @@ This strategy gets decrease the postgres load and return data quickly. Another i
 All of these deployments and services can be launched with command: `kubectl create -f <file.yaml>`
 
 
+We can test this solution in any Kubernetes cluster with the following commands:
+
+`kubectl create -f secrets.yaml`
+
+`kubectl create -f redis_secrets.yaml`
+
+`kubectl create -f dbmeasures_deployment.yaml`
+
+`kubectl create -f redis_deployment.yaml`
+
+`kubectl create -f db_service.yaml`
+
+`kubectl create -f redis_service.yaml`
+
+`kubectl create -f api2json_deployment.yaml`
+
+`kubectl create -f api2json_service.yaml`
+
+`kubectl create -f cache_deployment.yaml`
+
+`kubectl create -f cache_service.yaml`
+
+`export REDISCACHE_IP=$(kubectl get svc rediscache -o jsonpath='{.spec.clusterIP}')`
+
+`curl $REDISCACHE_IP:5005/api/v1/measures/air`
+
+
+The firt request will return the Json with "cache: false" tag, and the following requests will return the Json with "cache: true" tag.
+
 ## MONITORING, LOGS AND BACKUP
 
 To ensure proper operation of this solution there are some points that can bee monitorized easily:
